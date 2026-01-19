@@ -10,18 +10,22 @@ Disables the copy protection for [lyricstranslate.com](https://lyricstranslate.c
 
 ### Installation
 
-**Lyrics Translate - Disable Copy Protection** can be installed as a minimal userscript. Alternatively, just add the following filters to uBlock Origin:
+**Lyrics Translate - Disable Copy Protection** can be installed as a minimal userscript ([install](https://github.com/NikoboiNFTB/LyricsTranslate-Tweaks/raw/refs/heads/main/allow-copying-1.0.user.js)). Alternatively, just add the following filters to [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/):
 
 ```text
+
+! --- Lyrics Translate Filter by Nikoboi ---
+
 lyricstranslate.com##+js(aeld, copy)
 lyricstranslate.com##+js(aeld, beforecopy)
+
+! --- Lyrics Translate Filter by Nikoboi ---
+
 ```
 
->> Recommended
+>> Recommended over the userscript. Import and append… file can be found at [blocklist.txt](blocklist.txt).
 
 ### Demonstration
-
-#### With Copy Protection
 
 Normally, when you copy more than two verses you get:
 
@@ -38,8 +42,6 @@ Das Haus ist klein,
 https://lyricstranslate.com/en/rammstein-meine-tranen-lyrics.html
 
 ```
-
-#### Without Copy Protection
 
 But with Disable Copy Protection you can copy the entire text:
 
@@ -97,26 +99,13 @@ Deine Tränen
 
 ```text
 .
-├── chromium
-│   └── 1.0
-│       ├── content.js
-│       └── manifest.json
-│
-├── firefox
-│   └── 1.0
-│       ├── content.js
-│       └── manifest.json
-│
-├── userscript
-│   └── userscript-1.0.user.js
-│
+├── allow-copying-1.0.user.js
+├── blocklist.txt
 ├── LICENSE
 └── README.md
 
-6 directories, 7 files
+1 directory, 4 files
 ```
-
->> 67!!!
 
 ## Contributing
 
@@ -125,6 +114,7 @@ Feel free to fork this repository and submit issues or pull requests if you have
 ## Credits
 
 Created by **[Nikoboi](https://github.com/NikoboiNFTB/)**
+Script coughed up by 
 
 ## License
 
@@ -132,4 +122,4 @@ This project is licenced under the GNU General Public License V3. See [LICENSE](
 
 ## Legal Disclaimer
 
-If needed, for traversing the gray areas.
+**Disable Copy Protection** works like an ad-blocker by blocking specific script features and does not unlock or bypass any paid features. We do not endorse bypassing paid features, nor do we encourage violating any website’s terms of service.

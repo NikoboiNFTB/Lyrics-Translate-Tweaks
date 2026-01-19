@@ -89,55 +89,49 @@ Deine Tränen
 
 ### Technical
 
-LyricsTranslate implements client‑side copy protection using a `copy` event listener attached to the song container. When a selection exceeds a fixed threshold, the handler replaces the user’s selection with a truncated clone and appends a link to the page before the copy operation completes.
+LyricsTranslate modifies your copy operation using a `copy` event listener on the song container.
 
-The relevant logic (simplified and explained by ChatGPT) looks like this:
+When your selection is longer than a set threshold (220 in this case), the handler replaces it with a truncated version of the text and appends a link to the page just before it’s sent to the clipboard.
+
+The relevant logic looks like this:
 
 ```js
-function (e) {
-  if (typeof window.getSelection === "undefined") return;
-
-  const body_element = document.getElementsByClassName('song-node')[0];
-  const selection = window.getSelection();
-  const COPYLIMIT = 220;
-
-  // Allow short selections to copy normally
+function(e) {
+  if (typeof window.getSelection == "undefined") return;
+  var body_element = document.getElementsByClassName('song-node')[0];
+  var selection = window.getSelection();
+  var COPYLIMIT = 220; // Obvious function is obvious. Apparently the copy limit is 220 characters.
   if (("" + selection).length < COPYLIMIT) return;
-
-  // Create an off-screen container
-  const newdiv = document.createElement('div');
+  var newdiv = document.createElement('div');
   newdiv.style.position = 'absolute';
-  newdiv.style.left = '-99999px';
+  newdiv.style.left = '-99999px'; // Slick move.
   body_element.appendChild(newdiv);
-
-  // Clone and truncate the current selection
-  const range = selection.getRangeAt(0);
-  const fragment = range.cloneContents();
-  const tempDiv = document.createElement('div');
-  tempDiv.appendChild(fragment);
+  var range = selection.getRangeAt(0);
+  var documentFragment = range.cloneContents();
+  var tempDiv = document.createElement("div");
+  tempDiv.appendChild(documentFragment);
   trimContent(tempDiv, COPYLIMIT);
   newdiv.appendChild(tempDiv);
-
-  // Append attribution link
-  newdiv.innerHTML +=
-    "<a href='" + document.location.href + "'>" +
+  if (selection.getRangeAt(0).commonAncestorContainer.nodeName == "PRE") {
+    newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+  }
+  var linkname = window.location.protocol + '//' + window.location.hostname;
+  if (document.location.href.length < 65) {
+    linkname = document.location.href;
+  }
+  newdiv.innerHTML += "<a href='" + // New link constructor ig.
+    document.location.href + "'>" +
     document.location.href + "</a>";
-
-  // Replace the user's selection with the modified content
   selection.selectAllChildren(newdiv);
-
-  // Clean up shortly after the copy completes
-  window.setTimeout(() => {
+  window.setTimeout(function() {
     body_element.removeChild(newdiv);
   }, 200);
 }
 ```
 
-This doesn’t stop you from copying. Instead, it replaces your selected text with a truncated version and a page link right before it’s sent to the clipboard.
+>> This `event` is tied to `<div id="songnode" class="song-node">`.
 
-The userscript neutralizes this behavior by intercepting the `copy` event in the capture phase, preventing the site’s handler from ever executing. As a result, the original selection is copied unchanged.
-
-The uBlock Origin filters achieve the same goal at an earlier stage by blocking JavaScript from registering `copy` / `beforecopy` event listeners on the site altogether, ensuring that no copy‑modifying logic is installed in the first place.
+The Userscript neutralizes this behavior by intercepting the `copy` event in the capture phase, so the site’s handler never runs and your original selection is copied unchanged. The uBlock Origin filters achieve the same effect even earlier by blocking any `copy` or `beforecopy` listeners from being added to the page.
 
 ## File Tree
 

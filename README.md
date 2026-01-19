@@ -29,6 +29,8 @@ The blocklist filters work on desktop and mobile.
 
 >> Userscript manager needed; ([Violentmonkey for Firefox](https://addons.mozilla.org/en-US/firefox/addon/violentmonkey/)/[Tampermonkey for Chromium](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo))
 
+>> Untested on mobile, but should maybe work probably idk
+
 ### Demonstration
 
 Normally, when you try to copy more than one verse you get:

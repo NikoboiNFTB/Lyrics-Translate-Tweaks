@@ -87,6 +87,58 @@ Deine Tränen
 Deine Tränen
 ```
 
+### Technical
+
+LyricsTranslate implements client‑side copy protection using a `copy` event listener attached to the song container. When a selection exceeds a fixed threshold, the handler replaces the user’s selection with a truncated clone and appends a link to the page before the copy operation completes.
+
+The relevant logic (simplified and explained by ChatGPT) looks like this:
+
+```js
+function (e) {
+  if (typeof window.getSelection === "undefined") return;
+
+  const body_element = document.getElementsByClassName('song-node')[0];
+  const selection = window.getSelection();
+  const COPYLIMIT = 220;
+
+  // Allow short selections to copy normally
+  if (("" + selection).length < COPYLIMIT) return;
+
+  // Create an off-screen container
+  const newdiv = document.createElement('div');
+  newdiv.style.position = 'absolute';
+  newdiv.style.left = '-99999px';
+  body_element.appendChild(newdiv);
+
+  // Clone and truncate the current selection
+  const range = selection.getRangeAt(0);
+  const fragment = range.cloneContents();
+  const tempDiv = document.createElement('div');
+  tempDiv.appendChild(fragment);
+  trimContent(tempDiv, COPYLIMIT);
+  newdiv.appendChild(tempDiv);
+
+  // Append attribution link
+  newdiv.innerHTML +=
+    "<a href='" + document.location.href + "'>" +
+    document.location.href + "</a>";
+
+  // Replace the user's selection with the modified content
+  selection.selectAllChildren(newdiv);
+
+  // Clean up shortly after the copy completes
+  window.setTimeout(() => {
+    body_element.removeChild(newdiv);
+  }, 200);
+}
+```
+
+This doesn’t stop you from copying. Instead, it replaces your selected text with a truncated version and a page link right before it’s sent to the clipboard.
+
+The userscript neutralizes this behavior by intercepting the `copy` event in the capture phase, preventing the site’s handler from ever executing. As a result, the original selection is copied unchanged.
+
+The uBlock Origin filters achieve the same goal at an earlier stage by blocking JavaScript from registering `copy` / `beforecopy` event listeners on the site altogether, ensuring that no copy‑modifying logic is installed in the first place.
+
 ## File Tree
 
 ```text

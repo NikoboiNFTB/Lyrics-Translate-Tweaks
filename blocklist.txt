@@ -1,3 +1,4 @@
+
 ! --- Lyrics Translate Filter by Nikoboi ---
 
 lyricstranslate.com##+js(aeld, copy)

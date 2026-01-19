@@ -8,6 +8,10 @@ Collection of Tweaks for Lyrics Translate.
 
 Disables the copy protection for [lyricstranslate.com](https://lyricstranslate.com), allowing you to copy full song texts.
 
+The userscript is untested on mobile, but **the blocklist works on desktop and mobile**.
+
+>> Tested with Firefox for Android + uBlock Origin
+
 ### Installation
 
 **Lyrics Translate - Disable Copy Protection** can be installed as a minimal userscript ([install](https://github.com/NikoboiNFTB/LyricsTranslate-Tweaks/raw/refs/heads/main/allow-copying-1.0.user.js)).
@@ -19,81 +23,104 @@ lyricstranslate.com##+js(aeld, copy)
 lyricstranslate.com##+js(aeld, beforecopy)
 ```
 
->> Recommended over the userscript. Import and append… file can be found at [blocklist.txt](blocklist.txt).
+>> Recommended over the userscript. It's more set-it-and-forget-it. An **Import and append…** file can be found at [blocklist.txt](blocklist.txt).
 
 ### Demonstration
 
-Normally, when you copy more than two verses you get:
+Normally, when you try to copy more than one verse you get:
 
 ```text
-Ich leb noch immer bei Mama
-Jetzt schon alt, doch immer da
-Auch wenn die Ärmel jetzt länger sind
-Bin ich immer noch ihr kleines Kind
+Ein kleiner Mensch stirbt nur zum Schein
+wollte ganz alleine sein
+das kleine Herz stand still für Stunden
+so hat man es für tot befunden
+es wird verscharrt in nassem Sand
+mit einer Spieluhr in der Hand
  
-Wir sind allein, doch viel zu zweit
-Und teilen gern ein halbes Leid
-Das Haus ist klein,
-https://lyricstranslate.com/en/rammstein-meine-tranen-lyrics.html
+Der erste Schnee d
+https://lyricstranslate.com/en/Rammstein-Spieluhr-lyrics.html
 ```
 
-But with Disable Copy Protection you can copy the entire text:
+But with **Disable Copy Protection** you can copy the entire text:
 
 ```text
-Ich leb noch immer bei Mama
-Jetzt schon alt, doch immer da
-Auch wenn die Ärmel jetzt länger sind
-Bin ich immer noch ihr kleines Kind
+Ein kleiner Mensch stirbt nur zum Schein
+wollte ganz alleine sein
+das kleine Herz stand still für Stunden
+so hat man es für tot befunden
+es wird verscharrt in nassem Sand
+mit einer Spieluhr in der Hand
  
-Wir sind allein, doch viel zu zweit
-Und teilen gern ein halbes Leid
-Das Haus ist klein, die Stille groß
-Sie zwingt mich oft auf ihren Schoß
+Der erste Schnee das Grab bedeckt
+hat ganz sanft das Kind geweckt
+in einer kalten Winternacht
+ist das kleine Herz erwacht
  
-Ich leb noch immer bei Mama
-Und bleibe wohl für immer da
-Im Haus fehlt lange schon ein Mann
-Ich helfe aus, so gut ich kann
-Viel Liebe schenkt mir Mutter nicht
-Doch schlägt sie immer noch in mein Gesicht
-Und ab und zu hab ich geweint
-Da hat sie lächelnd nur gemeint
+Als der Frost ins Kind geflogen
+hat es die Spieluhr aufgezogen
+eine Melodie im Wind
+und aus der Erde singt das Kind
  
-Ein Mann weint nur, wenn seine Mutter stirbt
-Der Tod ist stark, das Herz ist schwach
-Wenn das eigen Fleisch im Blut verdirbt
-Der Klügere gibt nach
+Hoppe hoppe Reiter
+und kein Engel steigt herab
+mein Herz schlägt nicht mehr weiter
+nur der Regen weint am Grab
+hoppe hoppe Reiter
+eine Melodie im Wind
+mein Herz schlägt nicht mehr weiter
+und aus der Erde singt das Kind
  
-Auch den Vater konnte sie nicht lieben
-Hat ihn aus der Welt getrieben
-Dann und wann ein stummer Schrei
-Und eine kleine Litanei
-Viel Liebe gab ihm Mutter nicht
-Doch schlug sie oft in sein Gesicht
-Ab und zu hat er geweint
-Da hat sie lächelnd nur gemeint
+Der kalte Mond in voller Pracht
+hört die Schreie in der Nacht
+und kein Engel steigt herab
+nur der Regen weint am Grab
  
-Ein Mann weint nur, wenn seine Mutter stirbt
-Der Tod ist stark, das Herz ist schwach
-Wenn das eigen Fleisch im Blut verdirbt
-Der Klügere gibt nach
-Du solltest dich schämen
-Zeig nie deine Tränen
-Du solltest dich schämen
-Zeig nie deine Tränen
-Deine Tränen
+Zwischen harten Eichendielen
+wird es mit der Spieluhr spielen
+eine Melodie im Wind
+und aus der Erde singt das Kind
  
-Deine Tränen
-Deine Tränen
+Hoppe hoppe Reiter
+und kein Engel steigt herab
+mein Herz schlägt nicht mehr weiter
+nur der Regen weint am Grab
+hoppe hoppe Reiter
+eine Melodie im Wind
+mein Herz schlägt nicht mehr weiter
+und aus der Erde singt das Kind
+ 
+Hoppe hoppe Reiter
+mein Herz schlägt nicht mehr weiter
+ 
+Am Totensonntag hörten sie
+aus Gottes Acker diese Melodie
+da haben sie es ausgebettet
+das kleine Herz im Kind gerettet
+ 
+Hoppe hoppe Reiter
+eine Melodie im Wind
+mein Herz schlägt nicht mehr weiter
+und auf der Erde singt das Kind
+hoppe hoppe Reiter
+und kein Engel steigt herab
+mein Herz schlägt nicht mehr weiter
+nur der Regen weint am Grab
+ 
+Hoppe hoppe Reiter
+Eine Melodie im Wind
+Mein Herz schlägt nicht mehr weiter
+Und auf der Erde singt das Kind
 ```
 
 ### Technical
 
-LyricsTranslate modifies your copy operation using a `copy` event listener on the song container.
+LyricsTranslate intercepts your copy operations using a `copy` event listener on the song container. When a selection exceeds a set threshold (220 characters), the handler replaces it with a truncated version and appends a link to the page just before it’s sent to the clipboard.
 
-When your selection is longer than a set threshold (220 in this case), the handler replaces it with a truncated version of the text and appends a link to the page just before it’s sent to the clipboard.
+The Userscript neutralizes this behavior by intercepting the `copy` event **first**, leaving the native interception logic asleep.
 
-The relevant logic looks like this:
+The uBlock Origin filters achieve the same effect even earlier by blocking any `copy` or `beforecopy` listeners from being added to the page in the first place, effectively taking out the native logic in its sleep.
+
+This is how the site natively yoinks your `copy` events:
 
 ```js
 function(e) {
@@ -130,8 +157,6 @@ function(e) {
 ```
 
 >> This `event` is tied to `<div id="songnode" class="song-node">`.
-
-The Userscript neutralizes this behavior by intercepting the `copy` event in the capture phase, so the site’s handler never runs and your original selection is copied unchanged. The uBlock Origin filters achieve the same effect even earlier by blocking any `copy` or `beforecopy` listeners from being added to the page.
 
 ## File Tree
 

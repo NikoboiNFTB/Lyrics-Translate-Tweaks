@@ -1,6 +1,7 @@
 // ==UserScript==
 // @name         Lyrics Translate - Disable Copy Protection
 // @namespace    https://github.com/NikoboiNFTB/LyricsTranslate-Tweaks
+// @downloadURL  https://github.com/NikoboiNFTB/Lyrics-Translate-Tweaks/raw/refs/heads/main/allow-copying.user.js
 // @version      1.0
 // @description  Restores normal copy behavior for full song lyrics.
 // @author       Nikoboi

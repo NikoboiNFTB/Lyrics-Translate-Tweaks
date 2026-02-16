@@ -4,32 +4,44 @@ Collection of Tweaks for Lyrics Translate.
 
 ## Disable Copy Protection
 
-### Overview
-
 Disables the copy protection for [lyricstranslate.com](https://lyricstranslate.com), allowing you to copy full song lyrics.
 
 ### Usage
 
-To enable, just add the following filters to [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/):
+Add the filter list to uBlock Origin. Here's the source link:
+
+```text
+https://github.com/NikoboiNFTB/Lyrics-Translate-Tweaks/raw/refs/heads/main/blocklist.txt
+```
+
+You can also just add these to "My filters":
 
 ```text
 lyricstranslate.com##+js(aeld, copy)
 lyricstranslate.com##+js(aeld, beforecopy)
 ```
 
-And you're done!
+The filter will work on both desktop and mobile.
 
-An *Import and append…* file is also provided; [blocklist.txt](blocklist.txt)
+### uBlock Origin add tutorial
 
-The blocklist filters work on desktop and mobile.
+1. Select extension in the top-right.
 
->> Tested with [Firefox](https://play.google.com/store/apps/details?id=org.mozilla.firefox) + [uBlock Origin](https://addons.mozilla.org/en-US/android/addon/ublock-origin/) for Android, YMMV.
+2. Click the three gears to open the settings.
+
+3. Under "Filter lists" at the top, scroll down to the bottom.
+
+4. Select "Import..."
+
+5. Paste the URL linked above.
+
+6. Hit "Apply changes" at the top.
+
+>> Tested with [Firefox](https://play.google.com/store/apps/details?id=org.mozilla.firefox) + [uBlock Origin](https://addons.mozilla.org/en-US/android/addon/ublock-origin/).
 
 *Disable Copy Protection* can also be installed as a userscript; [click me](https://github.com/NikoboiNFTB/LyricsTranslate-Tweaks/raw/refs/heads/main/allow-copying.user.js)
 
 >> Userscript manager needed; ([Violentmonkey for Firefox](https://addons.mozilla.org/en-US/firefox/addon/violentmonkey/)/[Tampermonkey for Chromium](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo))
-
->> Untested on mobile, but should maybe work probably idk I just work here
 
 ### Demonstration
 

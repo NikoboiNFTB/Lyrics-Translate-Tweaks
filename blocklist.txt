@@ -1,5 +1,22 @@
-! --- Lyrics Translate Filters by Nikoboi --- !
+! Title: Lyrics Translate Filters by Nikoboi
+! Description: Removes copy protection.
+! Homepage: https://nikoboi.dev/
+! Author: Nikoboi
+! License: GNU General Public License v3.0 | https://github.com/NikoboiNFTB/Lyrics-Translate-Tweaks/blob/main/LICENSE
+! Source: https://github.com/NikoboiNFTB/Lyrics-Translate-Tweaks/raw/refs/heads/main/blocklist.txt
+! Issues: https://github.com/NikoboiNFTB/Lyrics-Translate-Tweaks/issues
+! Pull Requests: https://github.com/NikoboiNFTB/Lyrics-Translate-Tweaks/pulls
+! Last updated: 2026-02-16 11:50 UTC+02:00
+! Expires: 7 days
+
+! ========================================
+! Start of Filters
+! ========================================
+
 ! Both of these just prevent the site from fucking with the copy function.
 lyricstranslate.com##+js(aeld, copy)
 lyricstranslate.com##+js(aeld, beforecopy)
-! --- Lyrics Translate Filters by Nikoboi --- !
+
+! ========================================
+! End of Filters
+! ========================================

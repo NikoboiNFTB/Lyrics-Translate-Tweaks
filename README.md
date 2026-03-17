@@ -11,7 +11,7 @@ Disables the copy protection for [lyricstranslate.com](https://lyricstranslate.c
 Add the filter list to uBlock Origin. Here's the source link:
 
 ```text
-https://github.com/NikoboiNFTB/Lyrics-Translate-Tweaks/raw/refs/heads/main/blocklist.txt
+https://lyrics.nikoboi.dev/blocklist.txt
 ```
 
 You can also just add these to "My filters":

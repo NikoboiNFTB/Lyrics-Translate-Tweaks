@@ -37,11 +37,11 @@ The filter will work on both desktop and mobile.
 
 6. Hit "Apply changes" at the top.
 
->> Tested with [Firefox](https://play.google.com/store/apps/details?id=org.mozilla.firefox) + [uBlock Origin](https://addons.mozilla.org/en-US/android/addon/ublock-origin/).
+> > Tested with [Firefox](https://play.google.com/store/apps/details?id=org.mozilla.firefox) + [uBlock Origin](https://addons.mozilla.org/en-US/android/addon/ublock-origin/).
 
-*Disable Copy Protection* can also be installed as a userscript; [click me](https://github.com/NikoboiNFTB/LyricsTranslate-Tweaks/raw/refs/heads/main/allow-copying.user.js)
+_Disable Copy Protection_ can also be installed as a userscript; [click me](https://github.com/NikoboiNFTB/LyricsTranslate-Tweaks/raw/refs/heads/main/allow-copying.user.js)
 
->> Userscript manager needed; ([Violentmonkey for Firefox](https://addons.mozilla.org/en-US/firefox/addon/violentmonkey/)/[Tampermonkey for Chromium](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo))
+> > Userscript manager needed; ([Violentmonkey for Firefox](https://addons.mozilla.org/en-US/firefox/addon/violentmonkey/)/[Tampermonkey for Chromium](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo))
 
 ### Demonstration
 
@@ -54,7 +54,7 @@ das kleine Herz stand still für Stunden
 so hat man es für tot befunden
 es wird verscharrt in nassem Sand
 mit einer Spieluhr in der Hand
- 
+
 Der erste Schnee d
 https://lyricstranslate.com/en/Rammstein-Spieluhr-lyrics.html
 ```
@@ -68,17 +68,17 @@ das kleine Herz stand still für Stunden
 so hat man es für tot befunden
 es wird verscharrt in nassem Sand
 mit einer Spieluhr in der Hand
- 
+
 Der erste Schnee das Grab bedeckt
 hat ganz sanft das Kind geweckt
 in einer kalten Winternacht
 ist das kleine Herz erwacht
- 
+
 Als der Frost ins Kind geflogen
 hat es die Spieluhr aufgezogen
 eine Melodie im Wind
 und aus der Erde singt das Kind
- 
+
 Hoppe hoppe Reiter
 und kein Engel steigt herab
 mein Herz schlägt nicht mehr weiter
@@ -87,17 +87,17 @@ hoppe hoppe Reiter
 eine Melodie im Wind
 mein Herz schlägt nicht mehr weiter
 und aus der Erde singt das Kind
- 
+
 Der kalte Mond in voller Pracht
 hört die Schreie in der Nacht
 und kein Engel steigt herab
 nur der Regen weint am Grab
- 
+
 Zwischen harten Eichendielen
 wird es mit der Spieluhr spielen
 eine Melodie im Wind
 und aus der Erde singt das Kind
- 
+
 Hoppe hoppe Reiter
 und kein Engel steigt herab
 mein Herz schlägt nicht mehr weiter
@@ -106,15 +106,15 @@ hoppe hoppe Reiter
 eine Melodie im Wind
 mein Herz schlägt nicht mehr weiter
 und aus der Erde singt das Kind
- 
+
 Hoppe hoppe Reiter
 mein Herz schlägt nicht mehr weiter
- 
+
 Am Totensonntag hörten sie
 aus Gottes Acker diese Melodie
 da haben sie es ausgebettet
 das kleine Herz im Kind gerettet
- 
+
 Hoppe hoppe Reiter
 eine Melodie im Wind
 mein Herz schlägt nicht mehr weiter
@@ -123,7 +123,7 @@ hoppe hoppe Reiter
 und kein Engel steigt herab
 mein Herz schlägt nicht mehr weiter
 nur der Regen weint am Grab
- 
+
 Hoppe hoppe Reiter
 Eine Melodie im Wind
 Mein Herz schlägt nicht mehr weiter
@@ -174,7 +174,7 @@ function(e) {
 }
 ```
 
->> This `event` is tied to `<div id="songnode" class="song-node">`.
+> > This `event` is tied to `<div id="songnode" class="song-node">`.
 
 ## File Tree
 

@@ -200,7 +200,7 @@ Script and filters coughed up by **[ChatGPT](https://chatgpt.com/)**
 
 ## License
 
-This project is licenced under the GNU General Public License V3. See [LICENSE](LICENSE) for details.
+This project is licenced under the GNU General Public License V3. See [LICENSE](/LICENSE) for details.
 
 ## Legal Disclaimer
 

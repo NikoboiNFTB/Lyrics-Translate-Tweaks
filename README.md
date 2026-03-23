@@ -194,9 +194,9 @@ Feel free to fork this repository and submit issues or pull requests if you have
 
 ## Credits
 
-Created by **[Nikoboi](https://github.com/NikoboiNFTB/)**
+Created by [**Nikoboi**](https://github.com/NikoboiNFTB/)
 
-Script and filters coughed up by **[ChatGPT](https://chatgpt.com/)**
+Script and filters coughed up by [**ChatGPT**](https://chatgpt.com/)
 
 ## License
 

@@ -37,11 +37,11 @@ The filter will work on both desktop and mobile.
 
 6. Hit "Apply changes" at the top.
 
-> > Tested with [Firefox](https://play.google.com/store/apps/details?id=org.mozilla.firefox) + [uBlock Origin](https://addons.mozilla.org/en-US/android/addon/ublock-origin/).
+> Tested with [Firefox](https://play.google.com/store/apps/details?id=org.mozilla.firefox) + [uBlock Origin](https://addons.mozilla.org/en-US/android/addon/ublock-origin/).
 
 _Disable Copy Protection_ can also be installed as a userscript; [click me](https://github.com/NikoboiNFTB/LyricsTranslate-Tweaks/raw/refs/heads/main/allow-copying.user.js)
 
-> > Userscript manager needed; ([Violentmonkey for Firefox](https://addons.mozilla.org/en-US/firefox/addon/violentmonkey/)/[Tampermonkey for Chromium](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo))
+> Userscript manager needed; ([Violentmonkey for Firefox](https://addons.mozilla.org/en-US/firefox/addon/violentmonkey/)/[Tampermonkey for Chromium](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo))
 
 ### Demonstration
 
@@ -174,7 +174,7 @@ function(e) {
 }
 ```
 
-> > This `event` is tied to `<div id="songnode" class="song-node">`.
+> This `event` is tied to `<div id="songnode" class="song-node">`.
 
 ## File Tree
 
